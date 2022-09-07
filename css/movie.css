@@ -1,0 +1,8 @@
+body{
+    background-image: url("../images/movieImages/background.png");
+    padding: 0%;
+    margin: 0%;
+}
+.banner img{
+    width: 100%;
+}

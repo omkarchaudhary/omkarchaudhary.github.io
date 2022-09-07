@@ -2,7 +2,27 @@ body{
     background-image: url("../images/movieImages/background.png");
     padding: 0%;
     margin: 0%;
+    font-size: 8pt;
+    font-family: Verdana, Tahoma, sans-serif;
 }
+.banner{  
+    background-image: url("../images/movieImages/bannerbg.png");   
+}
+
 .banner img{
-    width: 100%;
+    margin-left: 20%;
+}
+h1{
+    padding: 0% 40% 0% 40%;
+}
+.review{
+    display: flex;
+    flex-direction: row;
+}
+#innerBox{
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 2%;
+    padding: 1%;
+    height: auto;
 }

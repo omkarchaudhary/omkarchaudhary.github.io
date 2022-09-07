@@ -36,13 +36,7 @@ body{
     grid-area: footer;
     background-color: darkslategray;
 }
-/* .container{
-    display: grid;
-    grid-template-areas: "header header header"
-    "navbar navbar navbar"
-    "firstColumn middleColumn lastColumn"
-    "footer footer footer"
-} */
+
 .container{
     display: grid;
     grid-template-areas: "header"
@@ -50,13 +44,38 @@ body{
     "firstColumn"
     "footer"
 }
-@media screen and (max-width:599px) {
+@media screen and (max-width:600px) {
     .container{
         display: grid;
         grid-template-areas: "header"
         "navbar"
         "firstColumn"
         "footer"
+    }
+    .firstColumn{
+        min-width: 300px;
+    }
+    .middleColumn{
+        min-width: 300px;
+    }
+    .lastColumn{
+        min-width: 600px;
+    }
+    .main{
+        flex-wrap: wrap;
+    }
+    .container-grid{
+        display: grid;
+        grid-template-columns: 2;
+    }
+    .firstColumnGrid{
+        min-width: 300px;
+    }
+    .middleColumnGrid{
+        min-width: 300px;
+    }
+    .lastColumnGrid{
+        min-width: 600px;
     }
     
 }
@@ -80,4 +99,28 @@ body{
 .footer p{
     color: white;
     text-align: center;
+}
+
+.container-grid{
+    display: grid;
+    grid-template-areas: "header header header"
+    "navbar navbar navbar"
+    "firstColumn middleColumn lastColumn"
+    "footer footer footer"
+}
+.firstColumnGrid{
+    grid-area: firstColumn;
+    background-color:
+    gray;
+    height: 400px;
+}
+.middleColumnGrid{
+    grid-area: middleColumn;
+    background-color: darkgray;
+    height: 400px;
+}
+.lastColumnGrid{
+    grid-area: lastColumn;
+    background-color: lightgray;
+    height: 400px;
 }

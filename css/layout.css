@@ -53,13 +53,13 @@ body{
         "footer"
     }
     .firstColumn{
-        min-width: 300px;
+        min-width: 50%;
     }
     .middleColumn{
-        min-width: 300px;
+        min-width: 50%;
     }
     .lastColumn{
-        min-width: 600px;
+        min-width: 100%;
     }
     .main{
         flex-wrap: wrap;

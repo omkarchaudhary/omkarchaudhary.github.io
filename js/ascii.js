@@ -2,7 +2,8 @@ window.onload = function(){
     "use strict";
     
     let delayTime = 250;
-    let animator = null;
+    let animator = undefined;
+    let textAreaValue = null;
     var startButton = document.getElementById("start");
     var stopButton = document.getElementById("stop");
     var animationSelector = document.getElementById("animation");
@@ -44,11 +45,15 @@ window.onload = function(){
         }else{
             delayTime = 250;
         }
+        if(startButton.disabled){
+            animation(textAreaValue, delayTime);
+        }
     }
 
-    function animation(textAreaValue,timer){
+    function animation(textValue,timer){
         let i = 0;
-        let frame = textAreaValue.split("=====\n");
+        let frame = textValue.split("=====\n");
+        clearInterval(animator);
           animator = setInterval(function(){
             textArea.value = frame[i];
             i++;
@@ -61,6 +66,8 @@ window.onload = function(){
 
     function displayAnimation(){
        var selectedAnimation = animationSelector.value;
-       textArea.innerHTML = ANIMATIONS[selectedAnimation];
+       textAreaValue = ANIMATIONS[selectedAnimation];
+       textArea.value = textAreaValue;
+       
     }
 }

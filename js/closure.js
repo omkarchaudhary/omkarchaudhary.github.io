@@ -21,6 +21,7 @@ console.log(count.reset());
 //  parameters or local variables.
 //  The Free variable in the first question for add function is counter.
 
+//Question 3
 function make_adder(inc){
     var value = 0;
     return function(){
@@ -31,39 +32,59 @@ var add5 = make_adder(5);
 add5();
 console.log(add5());
 
-x=1;
-var a = 5;
-var b = 10;
-var c = function(a,b,c){
-    console.log("1. "+x);
-    console.log("2. "+a);
-    var f = function(a,b,c){
-        b=a;
-        console.log("3. "+b);
-        b =c;
-        varx = 5;
-    }
-    f(a,b,c);
-    console.log("4. "+b);
-    var x =10;
-}
-c(8,9,10);
-console.log("5. "+b);
-console.log("6. "+x);
+//Question 4
+// What simple modification to the JavaScript file can remove all the names from the 
+// Global namespace?
+//Ans. By Revealing Module Pattern;
 
-var x = 9;
-function myFunction(){
-    return x*x;
-}
-console.log(myFunction());
-x =5;
-console.log(myFunction());
-
-var foo =1;
-function bar(){
-    if(!foo){
-        var foo =10;
+// Question 5
+let employee = (function(){
+    let name;
+    let age;
+    let salary;
+    const getName = function(){
+        return name
     }
-    alert(foo);
+    const getAge = function(){
+        return age;
+    }
+    const getSalary = function(){
+        return salary;
+    }
+    const setName = function(name){
+        name = name;
+    } 
+    const setAge = function(age){
+        age = age;
+    }
+    const setSalary = function(salary){
+        salary = salary
+    }
+    const increaseSalary = function(percentage){
+        return percentage*getSalary/100;
+    }
+    const incrementAge = function(age){
+        return age+getAge;
+    }
+    return{
+        setName : setName,
+        setAge : setAge,
+        setSalary : setSalary,
+        increaseSalary : increaseSalary,
+        increaseAge :incrementAge
+    }
+})();
+
+
+// Question 6
+employee.extension = function(){
+    let address;
+    function setAddress(address){
+        this.address = address;
+    }
+    function getAddress(){
+        return this.address;
+    }
 }
-bar();
+
+

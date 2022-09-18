@@ -51,7 +51,7 @@ function bar(){
     if(!foo){
         var foo =10;
     }
-    alert(foo);
+    //alert(foo);
 }
 bar();
 
@@ -76,3 +76,123 @@ let emp = function(){
      return ab;
 }
  console.log(emp().getName()());
+
+ 
+
+ // function to find the longestString without space using map/ reduce/ filter
+//"this is" => 0
+
+//1. filter having no space
+// output ["omkar","eman","programming"]
+//2. find max length of string
+// output highest value
+//indexOf
+
+// map/filter/reduce => this are always used with array only.
+//console.log("thisis".indexOf(' '));
+
+function maxString(arr){
+   let max = 0;
+   arr.filter(x => x.indexOf(' ')< 0)
+   .map( y =>{
+    if(y.length > max){
+        max = y.length;
+    }
+   });
+   return max;
+}
+const arr = ["this is","Omkar","Eman","programming", "Software Engineer"];
+console.log(maxString(arr));
+
+const mapArr = arr.map(x => x.length);
+console.log(mapArr);
+const filterArr = arr.filter(x => x.charAt(0) == x.charAt(0).toUpperCase());
+console.log(filterArr);
+const reduceArr = arr.reduce((x,y) => x+y,"");
+console.log(reduceArr);
+
+function sumNumbersArray(...x){
+     return x.reduce((x,y)=>x+y,0);
+}
+console.log(sumNumbersArray(1,2,3,4));
+
+function combineArrays(x,y){
+    return [...x,...y];
+}
+console.log(combineArrays([1,2,3],[4,5,6]));
+
+function addNumber(x){
+    let sum = 0;
+     return function add(){
+         return sum += x;
+    }
+}
+var result = addNumber(5);
+result();
+console.log("Closure "+ result());
+
+let myObject = {
+    x: 5,
+    y: 10
+};
+console.log(myObject);
+function currying(x, z){
+    return x + this.y + z;
+}
+let resultb = currying.bind(myObject,1,2);
+console.log(resultb());
+let resultc = currying.call(myObject,6,7);
+console.log(resultc);
+let resulta = currying.apply(myObject,[5,45]);
+console.log(resulta);
+//IIFE
+let iife = (function(){
+        function add(x,y){
+            return x+y;
+        }
+        return{
+            add : add
+        }
+})();
+console.log(iife.add(7,6));
+let iife2 = (function(x,y){   
+        return x+y;
+})(7,6);
+
+console.log(iife2);
+
+//Revealing Method pattern
+let revealed = (function(){
+    let x  = 5;
+    let y = 8;
+    function doMath(){
+      return x+y;
+    }
+    return {
+       doMath: doMath
+    }
+ })();
+ console.log(revealed.doMath());
+
+ // inheritance
+
+let person = {
+    name: "john",
+    speak: function(){
+        return this.name;
+    }
+   };
+   let dave = {
+   };
+   dave.__proto__ = person;
+   dave.__proto__.name = "dave smith";
+
+   let charlie ={
+    // name:"Charlie",
+    eat: function(){
+        return "eating....";
+    }
+   }
+   charlie.__proto__ = person;
+   charlie.__proto__.name = "Charlez Brown";
+   console.log(charlie.name);

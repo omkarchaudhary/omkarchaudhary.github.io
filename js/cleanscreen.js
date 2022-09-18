@@ -25,11 +25,31 @@ window.onload = function(){
     animation(growthRate);
 
     function growCircleByInput(){
-        circleDiv.style.height = circleGrowthAmount.value+"px";
-        circleDiv.style.width = circleWidth.value+"px";
-        circleDiv.style.borderRadius = circleWidth.value/2 +"px";
-        animation(circleGrowthRate.value);
+        // circleDiv.style.height = circleGrowthAmount.value+"px";
+        // circleDiv.style.width = circleWidth.value+"px";
+        // circleDiv.style.borderRadius = circleWidth.value/2 +"px";
+        // animation(circleGrowthRate.value);
+        createCircle();
     }
+    function createCircle(){
+        let positionChange = false;
+        for(let i =0; i<circleNumber.value;i++){
+            let newCircleDiv = document.createElement("div");
+            document.getElementById("circleDiv").appendChild(newCircleDiv);
+            newCircleDiv.style.height = circleGrowthAmount.value+"px";
+            newCircleDiv.style.width = circleWidth.value+"px";
+            newCircleDiv.style.borderRadius = circleWidth.value/2 +"px";
+            if(!positionChange){
+                newCircleDiv.style.left = "5px";
+                positionChange = true;
+            }else{
+                newCircleDiv.style.right = "5px";
+                positionChange = false;
+            }
+            animation(circleGrowthRate.value);
+        }
+    }
+
     function stop(){
         clearInterval(intervalId);
         resetCircle();

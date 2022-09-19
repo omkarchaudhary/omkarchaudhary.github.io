@@ -1,9 +1,3 @@
-x =4;
-{
-
-    console.log(x);
-}
-
 //this - refers to block where it live
 //bind - replace this with whatever we passed
 //bind - bind(object1, 2,3,4)();
@@ -76,20 +70,6 @@ let emp = function(){
      return ab;
 }
  console.log(emp().getName()());
-
- 
-
- // function to find the longestString without space using map/ reduce/ filter
-//"this is" => 0
-
-//1. filter having no space
-// output ["omkar","eman","programming"]
-//2. find max length of string
-// output highest value
-//indexOf
-
-// map/filter/reduce => this are always used with array only.
-//console.log("thisis".indexOf(' '));
 
 function maxString(arr){
    let max = 0;
@@ -196,3 +176,39 @@ let person = {
    charlie.__proto__ = person;
    charlie.__proto__.name = "Charlez Brown";
    console.log(charlie.name);
+
+   function Animal(){
+     this.name ="Animal";
+   }
+   Animal.prototype.speak = function(){
+    return "blah blah";
+    }
+   function Rabbit(){
+     this.name = "Rabbit";
+   }
+   function Animals(){
+    this.walk =true;
+   }
+
+   Rabbit.prototype = Animal;
+   let rabbit = new Rabbit();
+   console.log(rabbit.prototype.speak());
+
+   class Person{
+    // constructor are property of the class in javascript
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    set name(name){
+        this._name = name;
+    }
+    get name(){
+        return this._name;
+    }
+    printName(){
+        console.log("This is "+this.name);
+    }
+   }
+   let p = new Person("Javascript");
+   p.printName();

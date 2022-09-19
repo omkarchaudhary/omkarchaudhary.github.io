@@ -25,11 +25,11 @@ window.onload = function(){
     animation(growthRate);
 
     function growCircleByInput(){
-        // circleDiv.style.height = circleGrowthAmount.value+"px";
-        // circleDiv.style.width = circleWidth.value+"px";
-        // circleDiv.style.borderRadius = circleWidth.value/2 +"px";
-        // animation(circleGrowthRate.value);
-        createCircle();
+        circleDiv.style.height = circleGrowthAmount.value+"px";
+        circleDiv.style.width = circleWidth.value+"px";
+        circleDiv.style.borderRadius = circleWidth.value/2 +"px";
+        animation(circleGrowthRate.value);
+        //createCircle();
     }
     function createCircle(){
         let positionChange = false;
